@@ -4,6 +4,7 @@
 
 function first(arr) {
   //Code here
+  return arr[0]
 }
 
 //////////////////PROBLEM 2////////////////////
@@ -12,6 +13,7 @@ function first(arr) {
 
 function length(arr) {
   //Code here
+  return arr.length
 }
 
 //////////////////PROBLEM 3////////////////////
@@ -20,6 +22,8 @@ function length(arr) {
 
 function last(arr) {
   //Code here
+  for(let i = arr.length - 1; i > 0;)
+  return arr[i]
 }
 
 //////////////////PROBLEM 4////////////////////
@@ -28,6 +32,7 @@ function last(arr) {
 
 function addItem(array, number) {
   //Code here
+  array.push(number)
   return array
 }
 
@@ -37,6 +42,7 @@ function addItem(array, number) {
 
 function removeLast(array) {
   //Code here
+  array.pop()
   return array
 }
 
@@ -46,6 +52,7 @@ function removeLast(array) {
 
 function removeFirst(array) {
   //Code here
+  array.shift()
   return array
 }
 
@@ -57,6 +64,7 @@ function maker() {
   var numbers = []
   for (var i = 0; i <= 25; i++) {
     //Code here
+    numbers.push(i)
   }
 
   return numbers
@@ -70,9 +78,12 @@ function count31() {
   var numbers = []
 
   //Code here
-
+  for(i = 0; i < 32; i++){
+    numbers.push(i)
+  }
   return numbers
 }
+
 
 //////////////////PROBLEM 9////////////////////
 
@@ -87,6 +98,7 @@ function backWards(arr) {
 
   for (var i = arr.length - 1; i >= 0; i--) {
     // code here
+    newArray.push(arr[i])
   }
 
   return newArray
@@ -101,6 +113,11 @@ function backWards(arr) {
 
 function findInArray(arr, value) {
   // code here
+  if(arr.includes(value)){
+    return true
+  } else {
+    return false
+  }
 }
 
 //////////////////PROBLEM 11////////////////////
@@ -115,6 +132,7 @@ function addTen(arr) {
 
   for (var i = 0; i < arr.length; i++) {
     // code here
+    newArr.push(arr[i] + 10)
   }
 
   return newArr
@@ -131,7 +149,7 @@ function personName() {
     age: 29,
     location: 'Orem, UT',
   }
-  return // Code here
+  return person.firstName
 }
 
 //////////////////PROBLEM 13////////////////////
@@ -145,7 +163,7 @@ function personLocation() {
     age: 29,
     location: 'Orem, UT',
   }
-  return // Code Here
+  return person.location
 }
 
 //////////////////PROBLEM 14////////////////////
@@ -155,7 +173,7 @@ function personLocation() {
 const backpack = {}
 
 // Code Here
-
+backpack.frontPocket = 'compass'
 //////////////////PROBLEM 15////////////////////
 
 //Use bracket notation to add a material property to the box object.  Set it's value equal to the string 'cardboard'
@@ -163,7 +181,7 @@ const backpack = {}
 const box = {}
 
 // Code Here
-
+box['material'] = 'cardboard'
 //////////////////PROBLEM 16////////////////////
 
 //Create a variable called name.  Assign it the value of the firstName property using dot notation.
@@ -173,7 +191,7 @@ const person = {}
 person['firstName'] = 'sally'
 
 //code here
-
+let userFirstName = person.firstName
 //////////////////PROBLEM 17////////////////////
 
 // In the function updateUser, change the user parameter's name to Ryan, change the value of pwHash to superSafe and change the value of username to ryan2020. After you have updated all the values return the object.
@@ -187,6 +205,10 @@ person['firstName'] = 'sally'
 
 function updateUser(user) {
   // Code Here
+  user.name = 'Ryan' 
+  user.pwHash = 'superSafe'
+  user.username = 'ryan2020'
+  return user
 }
 
 //////////////////PROBLEM 18////////////////////
@@ -195,6 +217,8 @@ function updateUser(user) {
 
 function updateEmail(obj, str) {
   // Code here
+  obj.email = str
+  return obj
 }
 
 //////////////////PROBLEM 19////////////////////
@@ -202,13 +226,21 @@ function updateEmail(obj, str) {
 // Write a function called isOldEnough that takes a person obj and checks the age property to see if the person is old enough to enter the club.  If they are 21 or older return true else return false.
 
 // Code here
-
+function isOldEnough(person){
+  if(person.age >= 21){
+    return true
+  }
+  return false
+}
 //////////////////PROBLEM 20////////////////////
 
 //Create a function called addRole that takes in a user object as the first parameter and a string as the second parameter.  The string will represent the user's new role in the system (i.e. admin, creator, editor, visitor). Create a new property on the user object called "role" and assign the passed in string to it, then return the updated object.
 
 // Code here
-
+const addRole = (user, str) => { 
+  user.role = str
+  return user
+}
 ///////////////////////////////////////////////////////
 
 /*
@@ -245,6 +277,7 @@ function schoolStatus(status) {
   // } else {
   //   return 'No more video games!'
   // }
+  return (status === 'Good' ? 'Wow, great job kiddo!' : 'No more video games!')
 }
 
 //////////////////PROBLEM 22////////////////////
@@ -257,6 +290,7 @@ function schoolStatus(status) {
 
 function messageBasedOnAge(age) {
   //code here
+  return (age < 18 ? 'Not quite old enough, sorry.' : age == 18 ? 'Congrats on being an adult!' : 'Somebody is really getting up there, huh?')
 }
 
 //////////////////PROBLEM 23////////////////////
@@ -265,6 +299,9 @@ function messageBasedOnAge(age) {
 // To see it working, invoke outerFn at the bottom, passing in the InnerFn as the callback. You should now see "The innerFn is a callback!" in the console.
 
 // Create function here
+function outerFn(cb){
+  return cb()
+}
 
 // ===== DO NOT TOUCH CODE BELOW THIS LINE ===== //
 function innerFn() {
@@ -273,7 +310,7 @@ function innerFn() {
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
 // Invoke function here
-
+outerFn(innerFn)
 //////////////////PROBLEM 24////////////////////
 
 // Create a function called fullName, that takes in three parameters: firstName, lastName, and a callback.
@@ -281,7 +318,9 @@ function innerFn() {
 // To test, invoke fullName with your first name, last name and the welcomeMessage function as arguments.
 
 // Create function fullName here
-
+function fullName(firstName, lastName, cb){
+  return cb(firstName, lastName)
+}
 // ===== DO NOT TOUCH CODE BELOW THIS LINE ===== //
 function welcomeMessage(first, last) {
   return `Welcome to DevMountain, ${first} ${last}!`
@@ -289,7 +328,7 @@ function welcomeMessage(first, last) {
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
 // Invoke fullName below
-
+console.log(fullName('Wade', 'Pate', welcomeMessage))
 //////////////////PROBLEM 25////////////////////
 
 // Do not edit the code below.
@@ -313,7 +352,9 @@ function drinkAlcohol() {
 // ===== DO NOT TOUCH CODE ABOVE THIS LINE ===== //
 
 // Create function canDrink here
-
+function canDrink(age, cb1, cb2){
+  return age < 21 ? cb1() : cb2()
+}
 //////////////////PROBLEM 26////////////////////
 
 // Write two functions, one called add and one called multiply, that each takes in two numbers and returns the appropriate new value.
@@ -322,3 +363,14 @@ function drinkAlcohol() {
 // This function should return a operator invoked with the appropriate arguments.
 
 //Code here
+function add(num1, num2){
+  return num1 + num2
+}
+
+function multiply(num1, num2){
+  return num1 * num2
+}
+
+function math(num1, num2, cb){
+  return cb(num1, num2)
+}
